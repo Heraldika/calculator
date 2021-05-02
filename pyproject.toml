@@ -6,5 +6,18 @@ build-backend = "flit_core.buildapi"
 module = "mcalc"
 author = "matas tiskus"
 author-email = "tiskusm@gmail.com"
+home-page = "https://github.com/Heraldika/calculator"
+requires-python = ">=3.8"
 classifiers = [ "License :: OSI Approved :: MIT License",]
 description-file = "README.md"
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "tox",
+    "pytest",
+    "coverage",
+    "flake8",
+    "mypy",
+    "hypothesis",
+    "black"
+]
