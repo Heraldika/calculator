@@ -1,14 +1,14 @@
 class Calculator:
     """
     Calculator class for simple arithmetic operations.
-    
+
     Default initialization value is 0, but other values can be provided.
     Default reset value is 0, but other values can be provided.
-    The n_root method does not work on negative numbers in memory, and does not have
+    The n_root method does not work on negative numbers in _memory, and does not have
     high accuracy, user discretion advised.
-    
+
     Usage examples:
-    
+
     >>> Calculator(0)
     0.0
     >>> Calculator(1)
@@ -33,36 +33,36 @@ class Calculator:
     """
 
     def __init__(self, num: float = 0) -> None:
-        self.memory = float(num)
-        
-    def __repr__(self) -> str:
-        return str(self.memory)
+        self._memory = float(num)
 
     def add(self, num: float) -> float:
-        self.memory += num
-        return self.memory
+        self._memory += num
+        return self._memory
 
     def subtract(self, num: float) -> float:
-        self.memory -= num
-        return self.memory
+        self._memory -= num
+        return self._memory
 
     def multiply(self, num: float) -> float:
-        self.memory *= num
-        return self.memory
+        self._memory *= num
+        return self._memory
 
     def divide(self, num: float) -> float:
-        self.memory /= num
-        return self.memory
+        self._memory /= num
+        return self._memory
 
     def n_root(self, n: float) -> float:
-        "Takes n-th root of value stored in memory"
-        if self.memory < 0:
+        "Takes n-th root of value stored in _memory"
+        if self._memory < 0:
             raise NotImplementedError(
                 "Can't take roots of negative numbers, complex numbers not supported"
             )
-        self.memory = self.memory ** (1 / n)
-        return self.memory
+        self._memory = self._memory ** (1 / n)
+        return self._memory
 
     def reset(self, num: float = 0.0) -> float:
-        self.memory = float(num)
-        return self.memory
+        self._memory = float(num)
+        return self._memory
+
+    def get_memory(self) -> float:
+        return self._memory

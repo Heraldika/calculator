@@ -57,14 +57,14 @@ def test_n_root(x, y):
 
 
 @given(
-    st.integers(min_value=-1000000, max_value=1000000),
+    st.floats(min_value=-1000000, max_value=1000000),
 )
 def test_init(x):
-    assert Calculator(x).memory == x
+    assert Calculator(x).get_memory() == x
 
 
 @given(
-    st.integers(min_value=-1000000, max_value=1000000),
+    st.floats(min_value=-1000000, max_value=1000000),
 )
 def test_reset(x):
     assert Calculator(x).reset() == 0.0
