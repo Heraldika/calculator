@@ -1,4 +1,5 @@
-## A simple not very precise calculator :exclamation::exclamation::exclamation:
+# mcalc
+> ###### A simple not very precise calculator :exclamation::exclamation::exclamation:
 Able to perform basic operations like:
 * Add
 * Subtract
