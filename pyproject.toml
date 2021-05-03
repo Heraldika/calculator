@@ -7,7 +7,7 @@ module = "mcalc"
 author = "matas tiskus"
 author-email = "tiskusm@gmail.com"
 home-page = "https://github.com/Heraldika/calculator"
-requires-python = ">=3.8"
+requires-python = ">=3.6"
 classifiers = [ "License :: OSI Approved :: MIT License",]
 description-file = "README.md"
 
