@@ -1,10 +1,13 @@
+from typing import Any
+
+
 class Calculator:
     """
     Calculator class for simple arithmetic operations.
 
     Default initialization value is 0, but other values can be provided.
     Default reset value is 0, but other values can be provided.
-    The n_root method does not work on negative numbers in _memory, and does not have
+    The n_root method does not work on negative numbers in __memory, and does not have
     high accuracy, user discretion advised.
 
     Usage examples:
@@ -33,36 +36,44 @@ class Calculator:
     """
 
     def __init__(self, num: float = 0) -> None:
-        self._memory = float(num)
+        self.__memory = self.__parser(num)
+
+    def __parser(self, value: Any) -> float:
+        """Check for funny inputs"""
+        try:
+            return float(value)
+        except Exception as e:
+            print(f"Inputs should be numeric\nerror -> {e}")
+            raise
 
     def add(self, num: float) -> float:
-        self._memory += num
-        return self._memory
+        self.__memory += self.__parser(num)
+        return self.__memory
 
     def subtract(self, num: float) -> float:
-        self._memory -= num
-        return self._memory
+        self.__memory -= self.__parser(num)
+        return self.__memory
 
     def multiply(self, num: float) -> float:
-        self._memory *= num
-        return self._memory
+        self.__memory *= self.__parser(num)
+        return self.__memory
 
     def divide(self, num: float) -> float:
-        self._memory /= num
-        return self._memory
+        self.__memory /= self.__parser(num)
+        return self.__memory
 
     def n_root(self, n: float) -> float:
-        "Takes n-th root of value stored in _memory"
-        if self._memory < 0:
+        """Takes n-th root of value stored in __memory"""
+        if self.__memory < 0:
             raise NotImplementedError(
                 "Can't take roots of negative numbers, complex numbers not supported"
             )
-        self._memory = self._memory ** (1 / n)
-        return self._memory
+        self.__memory = self.__memory ** (1 / n)
+        return self.__memory
 
     def reset(self, num: float = 0.0) -> float:
-        self._memory = float(num)
-        return self._memory
+        self.__memory = self.__parser(num)
+        return self.__memory
 
     def get_memory(self) -> float:
-        return self._memory
+        return self.__memory

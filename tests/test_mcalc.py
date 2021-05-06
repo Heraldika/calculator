@@ -69,3 +69,13 @@ def test_init(x):
 def test_reset(x):
     assert Calculator(x).reset() == 0.0
     assert Calculator().reset(x) == x
+
+@given(
+    st.characters(),
+    st.datetimes(),
+)
+def test_parser(x, y):
+    with pytest.raises(Exception):
+        Calculator(x)
+        Calculator(y)
+        Calculator(x, y)
